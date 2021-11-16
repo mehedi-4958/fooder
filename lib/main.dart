@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'fooder_theme.dart';
 
 void main() {
   runApp(const Fooder());
@@ -9,22 +10,24 @@ class Fooder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO: Create Theme
+    final theme = FooderTheme.dark();
     //TODO: Apply Home Widget
 
     return MaterialApp(
-      //TODO: Add theme
-
+      theme: theme,
       title: 'Fooder',
       home: Scaffold(
-        //TODO: Style the title
-
         appBar: AppBar(
-          title: const Text('Fooder'),
+          title: Text(
+            'Fooder',
+            style: theme.textTheme.headline6,
+          ),
         ),
-        //TODO: Style the body text
-        body: const Center(
-          child: Text('Let\'s get cooking'),
+        body: Center(
+          child: Text(
+            'Let\'s get cooking',
+            style: theme.textTheme.headline1,
+          ),
         ),
       ),
     );
