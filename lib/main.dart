@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'fooder_theme.dart';
+import 'home.dart';
 
 void main() {
   runApp(const Fooder());
@@ -14,22 +15,10 @@ class Fooder extends StatelessWidget {
     //TODO: Apply Home Widget
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: theme,
       title: 'Fooder',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Fooder',
-            style: theme.textTheme.headline6,
-          ),
-        ),
-        body: Center(
-          child: Text(
-            'Let\'s get cooking',
-            style: theme.textTheme.headline1,
-          ),
-        ),
-      ),
+      home: const Home(),
     );
   }
 }
