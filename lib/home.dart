@@ -10,10 +10,32 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    //TODO: Add state variables and functions
+    //index variable for the bottom navigation bar items
+    int _selectedIndex = 0;
+    List<Widget> pages = <Widget>[
+      //TODO: Replace with Card1
+      Container(
+        color: Colors.red,
+      ),
+      //TODO: Replace with Card2
+      Container(
+        color: Colors.green,
+      ),
+      //TODO: Replace with Card3
+      Container(
+        color: Colors.blue,
+      ),
+    ];
+
+    void _onItemTapped(int index) {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           'Fooder',
           //header text style from custom theme
@@ -21,16 +43,15 @@ class _HomeState extends State<Home> {
         ),
       ),
       //TODO: Show selected tab
-      body: Center(
-        child: Text(
-          'Let\'s get cooking',
-          // Text style from fooder theme
-          style: Theme.of(context).textTheme.headline1,
-        ),
-      ),
+      body: pages[_selectedIndex],
 
       //Adding a bottom navigation bar to the Scaffold
       bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
+        //currentIndex to hightlight tab bar item
+        currentIndex: _selectedIndex,
+        //updates the state on tap
+        onTap: _onItemTapped,
         items: <BottomNavigationBarItem>[
           const BottomNavigationBarItem(
             icon: Icon(Icons.card_giftcard),
