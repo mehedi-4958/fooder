@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FooderTheme {
-  // Light Text Theme
+  /// Light Text Theme
   static TextTheme lightTextTheme = TextTheme(
     bodyText1: GoogleFonts.openSans(
       fontSize: 14.0,
@@ -31,7 +31,7 @@ class FooderTheme {
     ),
   );
 
-  //Dark Text Theme
+  /// Dark Text Theme
   static TextTheme darkTextTheme = TextTheme(
     bodyText1: GoogleFonts.openSans(
       fontSize: 14.0,
@@ -60,7 +60,7 @@ class FooderTheme {
     ),
   );
 
-  // Light Theme Data
+  /// Light Theme Data
   static ThemeData light() {
     return ThemeData(
       brightness: Brightness.light,
@@ -82,7 +82,7 @@ class FooderTheme {
     );
   }
 
-  //Dark Theme Data
+  /// Dark Theme Data
   static ThemeData dark() {
     return ThemeData(
       brightness: Brightness.dark,

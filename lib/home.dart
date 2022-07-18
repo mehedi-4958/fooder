@@ -4,64 +4,68 @@ class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
+  HomeState createState() => HomeState();
 }
 
-class _HomeState extends State<Home> {
+class HomeState extends State<Home> {
+  ///index variable for the bottom navigation bar items
+  int selectedIndex = 0;
+
+  static List<Widget> pages = <Widget>[
+    //TODO: Replace with Card1
+    Container(
+      color: Colors.red,
+    ),
+    //TODO: Replace with Card2
+    Container(
+      color: Colors.green,
+    ),
+    //TODO: Replace with Card3
+    Container(
+      color: Colors.blue,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    //index variable for the bottom navigation bar items
-    int _selectedIndex = 0;
-    List<Widget> pages = <Widget>[
-      //TODO: Replace with Card1
-      Container(
-        color: Colors.red,
-      ),
-      //TODO: Replace with Card2
-      Container(
-        color: Colors.green,
-      ),
-      //TODO: Replace with Card3
-      Container(
-        color: Colors.blue,
-      ),
-    ];
-
-    void _onItemTapped(int index) {
-      setState(() {
-        _selectedIndex = index;
-      });
-    }
-
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         title: Text(
           'Fooder',
-          //header text style from custom theme
+
+          /// header text style from custom theme
           style: Theme.of(context).textTheme.headline6,
         ),
       ),
-      //TODO: Show selected tab
-      body: pages[_selectedIndex],
+      // TODO: Show selected tab
+      body: pages[selectedIndex],
 
-      //Adding a bottom navigation bar to the Scaffold
+      /// Adding a bottom navigation bar to the Scaffold
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
-        //currentIndex to hightlight tab bar item
-        currentIndex: _selectedIndex,
-        //updates the state on tap
+
+        /// currentIndex to highlight tab bar item
+        currentIndex: selectedIndex,
+
+        /// updates the state on tap
         onTap: _onItemTapped,
-        items: <BottomNavigationBarItem>[
-          const BottomNavigationBarItem(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
             icon: Icon(Icons.card_giftcard),
-            label: 'Card',
+            label: 'Card1',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.card_giftcard),
             label: 'Card2',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: Icon(Icons.card_giftcard),
             label: 'Card3',
           ),
